@@ -1,0 +1,1 @@
+export type ServiceTypes = "MOBILE_PREPAID"| "MOBILE_POSTPAID"
