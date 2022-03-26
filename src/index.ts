@@ -11,7 +11,7 @@ const app = express()
 app.use(json())
 
 app.use(morgan("tiny"));
-app.use(cors());
+app.use(cors({exposedHeaders: ["X-TOTAL-SUBSCRIBERS","X-PREPAID-SUBSCRIBERS","X-POSTPAID-SUBSCRIBERS"]}));
 app.use("/", router)
 
 app.use(( _req: express.Request, res:express.Response) => {
