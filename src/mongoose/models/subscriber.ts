@@ -1,5 +1,4 @@
 import * as mongoose from "mongoose"
-import validator from "validator"
 import constants from "../../utils/constants"
 import preValidate from "../hooks/subscriber/preValidate";
 export interface ISubscriber {
@@ -33,11 +32,6 @@ const SubscriberSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique:true,
-    validate: {
-      validator(phone: string){
-        return validator.isMobilePhone(phone)
-      }
-    }
   },
   customerIdOwner: {
     type: Number,
@@ -53,9 +47,9 @@ const SubscriberSchema = new mongoose.Schema({
     enum: constants.SERVICE_TYPES
   },
   serviceStartDate: {
-    type: Date,
+    type: Number,
     required: true,
-    default: Date.now()
+    default: Math.round(Date.now()/1000)
   }
   },
 {
