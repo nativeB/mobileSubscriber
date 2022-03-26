@@ -1,5 +1,6 @@
-import { ISubscriberDocument, Subscriber } from "../../models";
+import { ISubscriberDocument, Subscriber } from "../../mongoose/models";
+import { BasicObjectType } from "../../types";
 
-export async function getManySubscribers(query: { [key: string]: any}, options: { [key: string]: any}): Promise<ISubscriberDocument[]> {
+export async function getManySubscribers(query: BasicObjectType, options: BasicObjectType): Promise<ISubscriberDocument[]> {
     return  Subscriber.find(query,null,options)
 }
