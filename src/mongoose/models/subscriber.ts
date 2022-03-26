@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose'
 import validator from "validator"
-import constants from "../utils/constants"
-
+import constants from "../../utils/constants"
+import preValidate from '../hooks/subscriber/preValidate';
 export interface ISubscriber {
   id: number;
   msisdn: string;
@@ -37,30 +37,31 @@ const SubscriberSchema = new mongoose.Schema({
         return validator.isMobilePhone(phone)
       }
     },
-    customerIdOwner: {
-      type: Number,
-      required: true
-    },
-    customerIdUser: {
-      type: Number,
-      required: true
-    },
-    serviceType: {
-      type: String,
-      required: true,
-      enum: constants.SERVICE_TYPES
-    },
-    serviceStartDate: {
-      type: Date,
-      required: true,
-      default: Date.now()
-    }
+  },
+  customerIdOwner: {
+    type: Number,
+    required: true
+  },
+  customerIdUser: {
+    type: Number,
+    required: true
+  },
+  serviceType: {
+    type: String,
+    required: true,
+    enum: constants.SERVICE_TYPES
+  },
+  serviceStartDate: {
+    type: Date,
+    required: true,
+    default: Date.now()
   }
-},
+  },
 {
   timestamps: true,
 })
 
+SubscriberSchema.pre('validate',preValidate)
 const Subscriber = mongoose.model<ISubscriberDocument, SubscriberModelInterface>('Subscriber', SubscriberSchema)
 
 
