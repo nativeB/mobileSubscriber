@@ -1,4 +1,5 @@
-require("dotenv").config();
+import dotenv = require("dotenv")
+dotenv.config();
 
 import * as express from "express";
 import  * as mongoose from "mongoose"
@@ -23,15 +24,15 @@ app.use(( _req: express.Request, res:express.Response) => {
 })
 mongoose.connect(process.env.MONGO_URI as string, {
 }, () => {
-  console.log("connected to database")
+  process.stdout.write("connected to database")
 })
 
 const server = app.listen(3000, () => {
-  console.log("server is listening on port 3000")
+  process.stdout.write("server is listening on port 3000\n")
 })
 
 process.on("SIGTERM", () => {
   server.close(() => {
-    console.log("HTTP server closed")
+    process.stdout.write("HTTP server closed")
   })
 })

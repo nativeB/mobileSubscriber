@@ -1,7 +1,7 @@
 import * as mongoose from "mongoose"
 import constants from "../../utils/constants"
 import preValidate from "../hooks/subscriber/preValidate";
-export interface ISubscriber {
+export interface SubscriberInterface {
   id: number;
   msisdn: string;
   customerIdOwner: number;
@@ -10,10 +10,10 @@ export interface ISubscriber {
   serviceStartDate: Date
 }
 
-interface SubscriberModelInterface extends mongoose.Model<ISubscriberDocument> {
+interface SubscriberModelInterface extends mongoose.Model<SubscriberDocumentInterface> {
 }
 
-export interface ISubscriberDocument extends mongoose.Document {
+export interface SubscriberDocumentInterface extends mongoose.Document {
   id: number;
   msisdn: string;
   customerIdOwner: number;
@@ -31,7 +31,7 @@ const SubscriberSchema = new mongoose.Schema({
   msisdn: {
     type: String,
     required: true,
-    unique:true,
+    unique:true
   },
   customerIdOwner: {
     type: Number,
@@ -57,7 +57,7 @@ const SubscriberSchema = new mongoose.Schema({
 })
 
 SubscriberSchema.pre("validate",preValidate)
-const Subscriber = mongoose.model<ISubscriberDocument, SubscriberModelInterface>("Subscriber", SubscriberSchema)
+const Subscriber = mongoose.model<SubscriberDocumentInterface, SubscriberModelInterface>("Subscriber", SubscriberSchema)
 
 
 export { Subscriber }

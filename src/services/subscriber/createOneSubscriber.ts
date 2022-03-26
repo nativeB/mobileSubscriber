@@ -1,6 +1,6 @@
-import { ISubscriber, ISubscriberDocument, Subscriber } from "../../mongoose/models";
+import { SubscriberInterface, SubscriberDocumentInterface, Subscriber } from "../../mongoose/models";
 
-export async function createOneSubscriber(subscriber: ISubscriber): Promise<ISubscriberDocument> {
+export async function createOneSubscriber(subscriber: SubscriberInterface): Promise<SubscriberDocumentInterface> {
     const newSubscriber = new Subscriber(subscriber);
     return  newSubscriber.save();
 }

@@ -6,7 +6,7 @@ export async function generateStatistics (_req: Request, res: Response, next: Ne
                 const total = await countSubscribers({});
                 const prepaid = await countSubscribers({ serviceType: "MOBILE_PREPAID"});
                 const postpaid = await countSubscribers({ serviceType: "MOBILE_POSTPAID"});
-                
+
                 res.set("x-total-subscribers",`${total}`)
                 res.set("x-prepaid-subscribers",`${prepaid}`)
                 res.set("x-postpaid-subscribers",`${postpaid}`)
