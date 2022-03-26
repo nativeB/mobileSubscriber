@@ -1,7 +1,7 @@
-import {  Request, Response } from 'express';
-import { getOneSubscriber } from '../../services';
-import { getObjectId } from '../../utils';
-import constants from '../../utils/constants';
+import {  Request, Response } from "express";
+import { getOneSubscriber } from "../../services";
+import { getObjectId } from "../../utils";
+import constants from "../../utils/constants";
 
 export const getSubscriberById =  async (req: Request, res: Response) => {
   try{
@@ -11,7 +11,7 @@ export const getSubscriberById =  async (req: Request, res: Response) => {
 
     if(!subscriber) {
       return res.status(404).send({
-        success:false, 
+        success:false,
         message: constants.STATUS_CODES[404]
     })
     }
@@ -21,7 +21,7 @@ export const getSubscriberById =  async (req: Request, res: Response) => {
     })
   }catch(error: any) {
     return res.status(500).send({
-      success:false, 
+      success:false,
       message: error.message || constants.STATUS_CODES[500]
   })
 }

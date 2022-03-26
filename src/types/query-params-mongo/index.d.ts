@@ -15,8 +15,7 @@ declare module "query-params-mongo" {
     };
   }): ProcessQuery;
 
-  interface ProcessQuery {
-    (
+  type ProcessQuery = (
       query: QueryObject,
       fieldSpec?: {
         [key: string]: {
@@ -24,8 +23,7 @@ declare module "query-params-mongo" {
         };
       },
       strict?: boolean
-    ): any;
-  }
+    ) => any;
 
   interface QueryObject {
     [key: string]: string | string[] | number;

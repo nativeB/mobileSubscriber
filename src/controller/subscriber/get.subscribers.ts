@@ -1,8 +1,8 @@
-import { Request, Response } from 'express';
-import { getManySubscribers } from '../../services';
-import { processQuery } from '../../utils';
-import constants from '../../utils/constants';
-import { subscriberQueryParamsValidator } from '../../validators';
+import { Request, Response } from "express";
+import { getManySubscribers } from "../../services";
+import { processQuery } from "../../utils";
+import constants from "../../utils/constants";
+import { subscriberQueryParamsValidator } from "../../validators";
 
 export const getSubscribers =  async (req: Request, res: Response) => {
   try{
@@ -16,7 +16,7 @@ export const getSubscribers =  async (req: Request, res: Response) => {
     })
   }catch(error: any) {
     return res.status(500).send({
-      success:false, 
+      success:false,
       message: error.message || constants.STATUS_CODES[500]
   })
 }

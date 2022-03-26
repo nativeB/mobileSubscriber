@@ -18,19 +18,19 @@ const ERROR_MESSAGES: {
     }
 } = {
     customerIdOwner: {
-        required: 'Customer id of owner is required',
-        type: 'Customer id of owner should be a number'
+        required: "Customer id of owner is required",
+        type: "Customer id of owner should be a number"
     },
     customerIdUser: {
-        required: 'Customer Id of user is required', 
-        type: 'Customer Id of user owner should be a number'
+        required: "Customer Id of user is required",
+        type: "Customer Id of user owner should be a number"
     },
     serviceType: {
-        required: 'Service Type is  required', 
-        type: `Service type must be one of ${SERVICE_TYPES.join(',')}`
+        required: "Service Type is  required",
+        type: `Service type must be one of ${SERVICE_TYPES.join(",")}`
     },
-    msisdn: { 
-        required: 'msisdn is required',
+    msisdn: {
+        required: "msisdn is required",
         type: "msisdn must be in E164 format",
         exists: "msisdn already exists!"
     },
