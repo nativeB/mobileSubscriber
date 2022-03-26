@@ -4,9 +4,10 @@ export function getObjectId(id: string| Types.ObjectId){
     return typeof id === 'string'? new Types.ObjectId(id) : id
 }
 
-export function queryProcessor(){
-    return qpm({
-        autoDetect: [{ fieldPattern: /_id$/, dataType: 'objectId' }],
-        converters: {objectId: Types.ObjectId}
-    });
+const qpmInit = qpm({
+    autoDetect: [{ fieldPattern: /_id$/, dataType: 'objectId' }],
+    converters: {objectId: Types.ObjectId}
+})
+export function processQuery(query: { [key:string]:any}, fieldSpec:{ [key:string]:any}, strict: boolean = true ){
+    return qpmInit(query, fieldSpec, strict);
 }

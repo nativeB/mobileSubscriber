@@ -15,8 +15,12 @@ interface SubscriberModelInterface extends mongoose.Model<ISubscriberDocument> {
 }
 
 export interface ISubscriberDocument extends mongoose.Document {
-  title: string;
-  description: string;
+  id: number;
+  msisdn: string;
+  customerIdOwner: number;
+  customerIdUser: number;
+  serviceType: string;
+  serviceStartDate: Date
 }
 
 const SubscriberSchema = new mongoose.Schema({
