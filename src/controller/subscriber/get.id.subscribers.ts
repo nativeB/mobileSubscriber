@@ -8,6 +8,7 @@ export const getSubscriberById =  async (req: Request, res: Response) => {
     const subscriber = await getOneSubscriber({id : getObjectId(subscriberId) })
 
     return res.json({
+      success: true,
       subscriber
     })
   };
