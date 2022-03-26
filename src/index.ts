@@ -6,11 +6,12 @@ import { json } from "body-parser";
 import router from "./routes"
 import constants from "./utils/constants";
 import * as morgan from "morgan"
-
+import * as cors from "cors"
 const app = express()
 app.use(json())
 
 app.use(morgan("tiny"));
+app.use(cors());
 app.use("/", router)
 
 app.use(( _req: express.Request, res:express.Response) => {
