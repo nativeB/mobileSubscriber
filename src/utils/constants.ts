@@ -14,6 +14,7 @@ const ERROR_MESSAGES: {
     [key:string]:  {
         required: string;
         type: string;
+        exists?: string;
     }
 } = {
     customerIdOwner: {
@@ -30,7 +31,8 @@ const ERROR_MESSAGES: {
     },
     msisdn: { 
         required: 'msisdn is required',
-        type: "msisdn must be in E164 format"
+        type: "msisdn must be in E164 format",
+        exists: "msisdn already exists!"
     },
     subscriberId: {
         required: "subscriberId param is required",

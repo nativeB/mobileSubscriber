@@ -32,6 +32,7 @@ const SubscriberSchema = new mongoose.Schema({
   msisdn: {
     type: String, 
     required: true,
+    unique:true,
     validate: {
       validator(phone: string){
         return validator.isMobilePhone(phone)
