@@ -3,7 +3,8 @@ import { validationResult} from "express-validator";
 import constants from "../utils/constants";
 
 export async function validateIncoming (req: Request, res: Response, next: NextFunction) {
-        const errors = validationResult(req);
+    try{    
+    const errors = validationResult(req);
         if (!errors.isEmpty()) {
           return res.status(400).json({
               success:false,
@@ -13,4 +14,7 @@ export async function validateIncoming (req: Request, res: Response, next: NextF
         } else {
           return next()
         }
+    }catch(error){
+        return next(error)
+    }
 }
