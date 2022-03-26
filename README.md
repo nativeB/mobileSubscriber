@@ -7,12 +7,13 @@
 
 
 ## Getting Started
+ * rename .env.example to .env
  * open terminal to folder
  * run command npm i 
  * run command npm run build:watch
  * open another terminal to folder
  * run npm run start
- 
+
 ## Routes
  # Post : /subscribers
     create a mobile subscriber
