@@ -1,4 +1,4 @@
-export * from "./subscriber/createSubscriber"
+export * from "./subscriber/createOneSubscriber"
 export * from "./subscriber/getOneSubscriber"
-export * from "./subscriber/getSubscriber"
-export * from "./subscriber/updateSubscriber"
+export * from "./subscriber/getManySubscribers"
+export * from "./subscriber/updateOneSubscriber"

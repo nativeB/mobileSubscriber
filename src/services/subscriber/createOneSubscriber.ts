@@ -1,6 +1,6 @@
 import { ISubscriber, ISubscriberDocument, Subscriber } from "../../models";
 
-export async function createSubscriber(subscriber: ISubscriber): Promise<ISubscriberDocument> {
+export async function createOneSubscriber(subscriber: ISubscriber): Promise<ISubscriberDocument> {
     const newSubscriber = new Subscriber(subscriber);
     return  newSubscriber.save();
 }
